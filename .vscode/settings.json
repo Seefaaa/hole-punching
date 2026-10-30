@@ -1,0 +1,22 @@
+{
+    // Makes files in the Cargo registry read-only to prevent accidental edits.
+    "files.readonlyInclude": {
+        "**/.cargo/registry/src/**/*.rs": true,
+        "**/.cargo/git/checkouts/**/*.rs": true,
+        "**/lib/rustlib/src/rust/library/**/*.rs": true
+    },
+    // Configures rust-analyzer to use Clippy for on-the-fly code analysis.
+    "rust-analyzer.check.command": "clippy",
+    "rust-analyzer.check.overrideCommand": null,
+    // Appends the directory name to mod.rs files to disambiguate them in the editor.
+    "workbench.editor.customLabels.patterns": {
+        "**/mod.rs": "${dirname}/mod.rs"
+    },
+    // Sets rust-analyzer as the default formatter for Rust files.
+    "[rust]": {
+        "editor.defaultFormatter": "rust-lang.rust-analyzer"
+    },
+    // Ensures that all files end with a newline and removes trailing whitespace on save.
+    "files.insertFinalNewline": true,
+    "files.trimTrailingWhitespace": true,
+}

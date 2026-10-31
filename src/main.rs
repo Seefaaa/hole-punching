@@ -16,6 +16,10 @@ fn main() -> Result<()> {
     let _ = socket.set_read_timeout(Some(Duration::from_millis(500)));
     let _ = socket.set_write_timeout(Some(Duration::from_millis(500)));
 
+    let local_addr = socket.local_addr().unwrap();
+
+    println!("Local IP: {}, Port: {}", local_addr.ip(), local_addr.port());
+
     let stun = SocketAddr::from_str("162.159.207.0:3478").unwrap(); // stun.cloudflare.com
 
     let magic_cookie: [u8; 4] = [0x21, 0x12, 0xA4, 0x42];
